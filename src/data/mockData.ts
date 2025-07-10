@@ -196,5 +196,30 @@ export const businesses: Business[] = [
     isOpen: true,
     coordinates: { lat: -34.6087, lng: -58.3866 },
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.4567890123456!2d-58.3888!3d-34.6087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzMxLjMiUyA1OMKwMjMnMTEuOCJX!5e0!3m2!1sen!2sar!4v1620000000000!5m2!1sen!2sar'
-  }
+  },
+  {
+  id: '8',
+  name: 'Mundo Bebé',
+  category: 'pañaleras',
+  description: 'Todo para tu bebé: pañales, toallitas y más.',
+  image: 'https://example.com/panaleras.jpg',
+  address: 'Calle Bebé 123',
+  phone: '+54 11 1122-3344',
+  whatsapp: '+5491111223344',
+  email: 'info@mundobebe.com',
+  website: 'https://mundobebe.com',
+  hours: {
+    monday: '09:00 - 18:00',
+    tuesday: '09:00 - 18:00',
+    wednesday: '09:00 - 18:00',
+    thursday: '09:00 - 18:00',
+    friday: '09:00 - 18:00',
+    saturday: '10:00 - 14:00',
+    sunday: 'Cerrado',
+  },
+  isOpen: true,
+  coordinates: { lat: -34.6037, lng: -58.3816 },
+  mapEmbedUrl: 'https://www.google.com/maps/embed?...'
+}
+
 ];
