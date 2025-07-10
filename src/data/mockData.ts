@@ -226,7 +226,7 @@ export const businesses: Business[] = [
     name: 'Distribuidora Sur',
     category: 'distribuidoras',
     description: 'Distribuidora mayorista de golosinas, artículos de almacén y productos de limpieza. Atención personalizada, variedad y los mejores precios para tu negocio.',
-    image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752188885/banner_distrisur_calidad_alta_a53gjm.png',
+    image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752189085/banner_distrisuira_alta_calidad_kpvv2x.jpg',
     address: 'Saenz Peña 330',
     phone: '+54 11 6789-0123',
     whatsapp: '+5493465658349',
