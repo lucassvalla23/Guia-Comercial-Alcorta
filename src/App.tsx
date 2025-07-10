@@ -46,6 +46,13 @@ function App() {
     setShowOpenOnly(false);
   };
 
+  const scrollToBusinesses = () => {
+    const businessesSection = document.getElementById('negocios');
+    if (businessesSection) {
+      businessesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   if (activeView === 'map') {
     return (
       <>
@@ -132,7 +139,11 @@ function App() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
-                  onClick={() => setActiveView('home')}
+                  onClick={() => {
+                    setActiveView('home');
+                    clearFilters();
+                    scrollToBusinesses();
+                  }}
                   className="px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   Explorar Negocios
@@ -170,7 +181,6 @@ function App() {
           <div className="mb-6 flex flex-wrap items-center gap-2 bg-white/70 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-primary-100/40">
             <span className="text-sm text-gray-600">Filtros activos:</span>
             {selectedCategory && (
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-700">
                 {categories.find(cat => cat.id === selectedCategory)?.name}
                 <button
@@ -180,10 +190,8 @@ function App() {
                   ×
                 </button>
               </span>
-              </span>
             )}
             {searchTerm && (
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-100 text-green-800">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-accent-100 text-accent-700">
                 "{searchTerm}"
                 <button
@@ -193,10 +201,8 @@ function App() {
                   ×
                 </button>
               </span>
-              </span>
             )}
             {showOpenOnly && (
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-orange-100 text-orange-800">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-secondary-100 text-secondary-700">
                 Solo abiertos
                 <button
@@ -205,7 +211,6 @@ function App() {
                 >
                   ×
                 </button>
-              </span>
               </span>
             )}
             <button
@@ -244,7 +249,7 @@ function App() {
         )}
 
         {/* All Businesses */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-primary-100/40">
+        <div id="negocios" className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-primary-100/40">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-gray-900">
               {selectedCategory 

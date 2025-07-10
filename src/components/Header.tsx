@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../assets/logo.png'; // Ajusta la ruta según tu estructura
+import logo from '../assets/logo.png';
 import { 
   Menu, 
   X, 
@@ -70,25 +70,25 @@ const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="bg-white shadow-lg border-b-2 border-primary-100 sticky top-0 z-40">
+    <header className="bg-[#01764c] shadow-lg sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={handleHomeClick}>
-  <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-lg mr-3 overflow-hidden">
-    <img 
-      src={logo} 
-      alt="Logo" 
-      className="w-full h-full object-cover"
-    />
-  </div>
-  <div className="hidden sm:block">
-    <h1 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-secondary-500 bg-clip-text text-transparent">
-      Guía Comercial Alcorta
-    </h1>
-    <p className="text-xs text-gray-500 -mt-1">Tu pueblo conectado</p>
-  </div>
-</div>
+            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg mr-3 overflow-hidden">
+              <img 
+                src={logo} 
+                alt="Logo" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-bold text-white">
+                Guía Comercial Alcorta
+              </h1>
+              <p className="text-xs text-white/80 -mt-1">Tu pueblo conectado</p>
+            </div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -96,8 +96,8 @@ const Header: React.FC<HeaderProps> = ({
               onClick={handleHomeClick}
               className={`flex items-center px-3 py-2 rounded-lg font-medium transition-all duration-200 ${
                 activeView === 'home'
-                  ? 'text-primary-600 bg-primary-50 shadow-sm'
-                  : 'text-gray-700 hover:text-primary-600 hover:bg-primary-50'
+                  ? 'text-[#c42b2a] bg-white/10 shadow-sm'
+                  : 'text-white hover:text-[#c42b2a] hover:bg-white/10'
               }`}
             >
               <Home className="w-4 h-4 mr-2" />
@@ -108,7 +108,7 @@ const Header: React.FC<HeaderProps> = ({
             <div className="relative">
               <button
                 onClick={toggleCategories}
-                className="flex items-center px-3 py-2 rounded-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                className="flex items-center px-3 py-2 rounded-lg font-medium text-white hover:text-[#c42b2a] hover:bg-white/10 transition-all duration-200"
               >
                 Categorías
                 <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${
@@ -119,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({
               {isCategoriesOpen && (
                 <div className="absolute top-full left-0 mt-2 w-96 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-y-auto z-50 max-h-[80vh] scroll-smooth">
                   {/* Header elegante */}
-                  <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-6 py-3 sticky top-0 z-10">
+                  <div className="bg-[#01764c] px-6 py-3 sticky top-0 z-10">
                     <h3 className="text-white font-semibold text-base">Explorar Categorías</h3>
                     <p className="text-white/80 text-xs mt-1">Encuentra lo que buscas</p>
                   </div>
@@ -155,12 +155,12 @@ const Header: React.FC<HeaderProps> = ({
                           <button
                             key={category.id}
                             onClick={() => handleCategorySelect(category.id)}
-                            className="group flex flex-col items-center p-3 rounded-lg border border-gray-100 hover:border-primary-200 hover:shadow-md transition-all duration-200 hover:bg-gradient-to-br hover:from-primary-50 hover:to-secondary-50"
+                            className="group flex flex-col items-center p-3 rounded-lg border border-gray-100 hover:border-[#c42b2a]/30 hover:shadow-md transition-all duration-200 hover:bg-gradient-to-br hover:from-[#c42b2a]/5 hover:to-[#e74c3c]/5"
                           >
-                            <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center mb-2 group-hover:from-primary-100 group-hover:to-accent-100 transition-all duration-200 shadow-sm`}>
+                            <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center mb-2 group-hover:from-[#c42b2a]/10 group-hover:to-[#e74c3c]/10 transition-all duration-200 shadow-sm`}>
                               {IconComponent && <IconComponent className={`w-5 h-5 ${category.color} group-hover:scale-105 transition-transform duration-200`} />}
                             </div>
-                            <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 text-center leading-tight">
+                            <span className="text-xs font-medium text-gray-700 group-hover:text-[#c42b2a] text-center leading-tight">
                               {category.name}
                             </span>
                           </button>
@@ -176,7 +176,7 @@ const Header: React.FC<HeaderProps> = ({
                         onCategorySelect('');
                         setIsCategoriesOpen(false);
                       }}
-                      className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-2.5 rounded-lg font-medium text-sm hover:from-primary-600 hover:to-primary-700 transition-all duration-200 shadow-md hover:shadow-lg"
+                      className="w-full bg-[#c42b2a] text-white py-2.5 rounded-lg font-medium text-sm hover:bg-[#a82424] transition-all duration-200 shadow-md hover:shadow-lg"
                     >
                       Ver Todos los Negocios
                     </button>
@@ -189,8 +189,8 @@ const Header: React.FC<HeaderProps> = ({
               onClick={handleMapClick}
               className={`flex items-center px-3 py-2 rounded-lg font-medium transition-all duration-200 ${
                 activeView === 'map'
-                  ? 'text-primary-600 bg-primary-50 shadow-sm'
-                  : 'text-gray-700 hover:text-primary-600 hover:bg-primary-50'
+                  ? 'text-[#c42b2a] bg-white/10 shadow-sm'
+                  : 'text-white hover:text-[#c42b2a] hover:bg-white/10'
               }`}
             >
               <Map className="w-4 h-4 mr-2" />
@@ -202,7 +202,7 @@ const Header: React.FC<HeaderProps> = ({
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors"
+              className="p-2 rounded-lg text-white hover:text-[#c42b2a] hover:bg-white/10 transition-colors"
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -215,14 +215,14 @@ const Header: React.FC<HeaderProps> = ({
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
+          <div className="md:hidden border-t border-white/20 py-4">
             <div className="space-y-2">
               <button
                 onClick={handleHomeClick}
                 className={`w-full flex items-center px-3 py-2 rounded-lg font-medium transition-all duration-200 ${
                   activeView === 'home'
-                    ? 'text-primary-600 bg-primary-50'
-                    : 'text-gray-700 hover:text-primary-600 hover:bg-primary-50'
+                    ? 'text-[#c42b2a] bg-white/10'
+                    : 'text-white hover:text-[#c42b2a] hover:bg-white/10'
                 }`}
               >
                 <Home className="w-4 h-4 mr-3" />
@@ -232,7 +232,7 @@ const Header: React.FC<HeaderProps> = ({
               <div>
                 <button
                   onClick={toggleCategories}
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-lg font-medium text-white hover:text-[#c42b2a] hover:bg-white/10 transition-all duration-200"
                 >
                   <span>Categorías</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
@@ -242,7 +242,7 @@ const Header: React.FC<HeaderProps> = ({
 
                 {isCategoriesOpen && (
                   <div className="mt-3 bg-white rounded-xl shadow-lg border border-gray-100 overflow-y-auto max-h-[60vh] scroll-smooth">
-                    <div className="bg-gradient-to-r from-primary-500 to-secondary-500 px-4 py-3 sticky top-0 z-10">
+                    <div className="bg-[#01764c] px-4 py-3 sticky top-0 z-10">
                       <h4 className="text-white font-medium text-sm">Categorías</h4>
                     </div>
                     <div className="p-3 space-y-1">
@@ -250,9 +250,9 @@ const Header: React.FC<HeaderProps> = ({
                         <button
                           key={category.id}
                           onClick={() => handleCategorySelect(category.id)}
-                          className="w-full flex items-center px-3 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary-50 hover:to-secondary-50 hover:text-primary-700 rounded-lg transition-all duration-200 group"
+                          className="w-full flex items-center px-3 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-[#c42b2a]/5 hover:to-[#e74c3c]/5 hover:text-[#c42b2a] rounded-lg transition-all duration-200 group"
                         >
-                          <div className={`w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center mr-3 group-hover:bg-gradient-to-br group-hover:from-primary-100 group-hover:to-secondary-100 transition-all duration-200`}>
+                          <div className={`w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center mr-3 group-hover:bg-gradient-to-br group-hover:from-[#c42b2a]/10 group-hover:to-[#e74c3c]/10 transition-all duration-200`}>
                             <span className={`w-3 h-3 rounded-full ${category.color.replace('text-', 'bg-')} group-hover:scale-110 transition-transform duration-200`} />
                           </div>
                           <span className="font-medium">{category.name}</span>
@@ -266,7 +266,7 @@ const Header: React.FC<HeaderProps> = ({
                           setIsCategoriesOpen(false);
                           setIsMenuOpen(false);
                         }}
-                        className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-2.5 rounded-lg font-medium text-sm hover:from-primary-600 hover:to-primary-700 transition-all duration-200"
+                        className="w-full bg-[#c42b2a] text-white py-2.5 rounded-lg font-medium text-sm hover:bg-[#a82424] transition-all duration-200"
                       >
                         Ver Todos
                       </button>
@@ -279,8 +279,8 @@ const Header: React.FC<HeaderProps> = ({
                 onClick={handleMapClick}
                 className={`w-full flex items-center px-3 py-2 rounded-lg font-medium transition-all duration-200 ${
                   activeView === 'map'
-                    ? 'text-primary-600 bg-primary-50'
-                    : 'text-gray-700 hover:text-primary-600 hover:bg-primary-50'
+                    ? 'text-[#c42b2a] bg-white/10'
+                    : 'text-white hover:text-[#c42b2a] hover:bg-white/10'
                 }`}
               >
                 <Map className="w-4 h-4 mr-3" />

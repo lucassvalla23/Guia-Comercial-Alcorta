@@ -62,6 +62,7 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({ onCategorySelect }) => {
       </div>
     </div>
   );
+  
 };
 
 export default CategoryGrid;

@@ -233,7 +233,7 @@ export const businesses: Business[] = [
     email: 'distrisuralcorta@gmail.com',
     website: 'https://distribuidorasur.netlify.app/',
     hours: {
-      monday: '16:00 - 23:00',
+      monday: '8:30 - 12:00', 
       tuesday: '16:00 - 23:00',
       wednesday: '16:00 - 23:00',
       thursday: '16:00 - 23:00',
