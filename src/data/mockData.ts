@@ -220,6 +220,29 @@ export const businesses: Business[] = [
   isOpen: true,
   coordinates: { lat: -34.6037, lng: -58.3816 },
   mapEmbedUrl: 'https://www.google.com/maps/embed?...'
-}
-
+},
+{
+    id: '8',
+    name: 'Distribuidora Sur',
+    category: 'distribuidoras',
+    description: 'Distribuidora mayorista de golosinas, artículos de almacén y productos de limpieza. Atención personalizada, variedad y los mejores precios para tu negocio.',
+    image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752188885/banner_distrisur_calidad_alta_a53gjm.png',
+    address: 'Saenz Peña 330',
+    phone: '+54 11 6789-0123',
+    whatsapp: '+5493465658349',
+    email: 'distrisur@gmail.com',
+    website: 'https://distribuidorasur.netlify.app/',
+    hours: {
+      monday: '16:00 - 23:00',
+      tuesday: '16:00 - 23:00',
+      wednesday: '16:00 - 23:00',
+      thursday: '16:00 - 23:00',
+      friday: '16:00 - 24:00',
+      saturday: '14:00 - 24:00',
+      sunday: '14:00 - 22:00',
+    },
+    isOpen: true,
+    coordinates: { lat: -33.53879, lng: -61.11972 },
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.556926941476!2d-61.12228062430199!3d-33.53890360204766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7f10053cb179f%3A0x911b5a193c009819!2sDISTRIBUIDORA%20SUR%20ALCORTA!5e0!3m2!1ses!2sar!4v1752188704376!5m2!1ses!2sar'
+  },
 ];

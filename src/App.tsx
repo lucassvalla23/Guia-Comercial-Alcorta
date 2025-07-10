@@ -84,7 +84,7 @@ function App() {
         {/* Hero Section */}
         <div className="relative mb-12 bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 rounded-3xl overflow-hidden shadow-2xl">
           {/* Background Pattern */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-600/90 to-primary-700/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-red-600/90 to-red-700/90"></div>
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%2523ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
           
           {/* Content */}
@@ -102,7 +102,7 @@ function App() {
               
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 Descubre los
-                <span className="block bg-gradient-to-r from-accent-300 to-accent-400 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent">
                   Comercios, Servicios Y Profesionales De Nuestra Localidad
                 </span>
                 <span className="block text-4xl md:text-5xl"></span>

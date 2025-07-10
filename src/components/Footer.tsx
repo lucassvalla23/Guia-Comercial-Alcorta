@@ -63,18 +63,18 @@ const Footer: React.FC = () => {
               <div className="flex items-center text-gray-300">
                 <Mail className="w-4 h-4 mr-3 text-gray-400" />
                 <a href="mailto:info@directoriolocal.com" className="hover:text-white transition-colors">
-                  info@directoriolocal.com
+                  guiacomercialalcorta@gmail.com
                 </a>
               </div>
               <div className="flex items-center text-gray-300">
                 <Phone className="w-4 h-4 mr-3 text-gray-400" />
                 <a href="tel:+541112345678" className="hover:text-white transition-colors">
-                  +54 11 1234-5678
+                  +54 9 3465 66-1969
                 </a>
               </div>
               <div className="flex items-center text-gray-300">
                 <MapPin className="w-4 h-4 mr-3 text-gray-400" />
-                <span>Tu Pueblo, Argentina</span>
+                <span>Alcorta Santa Fe, Argentina</span>
               </div>
             </div>
           </div>
