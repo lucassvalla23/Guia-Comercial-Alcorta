@@ -17,14 +17,14 @@ import {
   FlaskRound,
   Building2,
   Martini,
-  Flower2,
-  Baby,
+  Flower,
   PartyPopper,
   NotebookPen,
   Bone,
   School,
   Trophy,
   HandCoins,
+  Baby,
 } from 'lucide-react';
 import { categories } from '../data/mockData';
 
@@ -140,14 +140,14 @@ const Header: React.FC<HeaderProps> = ({
                           FlaskRound,
                           Building2,
                           Martini,
-                          Flower2,
-                          Baby,
+                          Flower,
                           PartyPopper,
                           NotebookPen,
                           Bone,
                           School,
                           Trophy,
                           HandCoins,
+                          Baby,
                         };
                         const IconComponent = iconMap[category.icon];
                         

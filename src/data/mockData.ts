@@ -12,13 +12,14 @@ export const categories: Category[] = [
   { id: 'perfumerias', name: 'Perfumerias', icon: 'FlaskRound', color: 'text-yellow-500' },
   { id: 'distribuidoras', name: 'Distribuidoras', icon: 'Building2', color: 'text-indigo-500' },
   { id: 'bares', name: 'Bares', icon: 'Martini', color: 'text-amber-500' },
-  { id: 'floreras', name: 'Floreras', icon: 'Baby', color: 'text-rose-500' },
+  { id: 'floreras', name: 'Floreras', icon: 'Flower', color: 'text-rose-500' },
   { id: 'cotillón', name: 'Cotillón', icon: 'PartyPopper', color: 'text-fuchsia-500' },
   { id: 'librerías', name: 'Librerías', icon: 'NotebookPen', color: 'text-emerald-500' },
   { id: 'forrajerías', name: 'Forrajerías', icon: 'Bone', color: 'text-orange-500' },
   { id: 'geriátricos', name: 'Geriátricos', icon: 'School', color: 'text-cyan-500' },
   { id: 'clubes', name: 'Clubes', icon: 'Trophy', color: 'text-lime-500' },
   { id: 'emprendimientos', name: 'Emprendimientos', icon: 'HandCoins', color: 'text-violet-500' },
+  { id: 'pañaleras', name: 'Pañalaeras', icon: 'Baby', color: 'text-violet-500' },
 ];
 
 export const businesses: Business[] = [

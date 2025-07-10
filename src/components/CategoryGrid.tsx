@@ -1,5 +1,10 @@
 import React from 'react';
-import { Pill, Beef, Drumstick, ShoppingBasket, Store, Croissant, Salad, PawPrint, FlaskRound, Building2, Martini, Flower2, PartyPopper, NotebookPen, Bone, School, Trophy, HandCoins,     } from 'lucide-react';
+import { 
+  Pill, Beef, Drumstick, ShoppingBasket, Store, Croissant, 
+  Salad, PawPrint, FlaskRound, Building2, Martini, 
+  Flower, PartyPopper, NotebookPen, Bone, School, 
+  Trophy, HandCoins,
+} from 'lucide-react';
 import { categories } from '../data/mockData';
 
 interface CategoryGridProps {
@@ -7,7 +12,7 @@ interface CategoryGridProps {
 }
 
 const CategoryGrid: React.FC<CategoryGridProps> = ({ onCategorySelect }) => {
-  const iconMap: { [key: string]: React.ComponentType<any> } = {
+  const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     Pill,
     Beef,
     Drumstick,
@@ -19,7 +24,7 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({ onCategorySelect }) => {
     FlaskRound,
     Building2,
     Martini,
-    Flower2,
+    Flower,
     PartyPopper,
     NotebookPen,
     Bone,
@@ -30,10 +35,14 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({ onCategorySelect }) => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent mb-6">Explorar por Categorías</h2>
+      <h2 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent mb-6">
+        Explorar por Categorías
+      </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {categories.map((category) => {
           const IconComponent = iconMap[category.icon];
+          if (!IconComponent) return null; // O usa un ícono por defecto
+          
           return (
             <button
               key={category.id}
