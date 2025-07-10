@@ -1,10 +1,10 @@
 import { Business, Category } from '../types';
 
 export const categories: Category[] = [
-  { id: 'farmacias', name: 'Farmacias', icon: 'Pill', color: 'text-accent-500' },
-  { id: 'carnicerías', name: 'Carnicerías', icon: 'Beef', color: 'text-secondary-500' },
-  { id: 'pollerías', name: 'Pollerías', icon: 'Drumstick', color: 'text-primary-500' },
-  { id: 'kioskos', name: 'Kioskos', icon: 'ShoppingBasket', color: 'text-red-500' },
+  { id: 'farmacia', name: 'Farmacias', icon: 'Pill', color: 'text-accent-500' },
+  { id: 'carnicería', name: 'Carnicerías', icon: 'Beef', color: 'text-secondary-500' },
+  { id: 'pollería', name: 'Pollerías', icon: 'Drumstick', color: 'text-primary-500' },
+  { id: 'kiosko', name: 'Kioskos', icon: 'ShoppingBasket', color: 'text-red-500' },
   { id: 'supermercados', name: 'Supermercados', icon: 'Store', color: 'text-green-500' },
   { id: 'panaderías', name: 'Panaderías', icon: 'Croissant', color: 'text-purple-500' },
   { id: 'verdulerías', name: 'Verdulerías', icon: 'Salad', color: 'text-pink-500' },
@@ -26,7 +26,7 @@ export const businesses: Business[] = [
   {
     id: '1',
     name: 'Farmacia Capella',
-    category: 'farmacias',
+    category: 'farmacia',
     description: 'Farmacia con amplia variedad de medicamentos y productos de cuidado personal.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1751744786/farmacia_capella_ojebng.jpg',
     address: 'Bv. 25 De Mayo 567',
@@ -54,7 +54,7 @@ export const businesses: Business[] = [
   {
     id: '2',
     name: 'Farmacia Nardoni',
-    category: 'farmacias',
+    category: 'farmacia',
     description: 'Farmacia con servicio de delivery y asesoramiento farmacéutico profesional.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1751746698/farmacia_nardoni_sczuvq.jpg',
     address: 'Av. San Martín 456',
