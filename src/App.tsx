@@ -103,7 +103,7 @@ function App() {
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 Descubre los
                 <span className="block bg-gradient-to-r from-accent-300 to-accent-400 bg-clip-text text-transparent">
-                  Emprendimientos
+                  Comercios, Servicios Y Profesionales De Nuestra Localidad
                 </span>
                 <span className="block text-4xl md:text-5xl">de Tu Pueblo</span>
               </h1>

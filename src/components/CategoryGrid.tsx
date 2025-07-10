@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pill, Beef, Drumstick, ShoppingBasket, Store, Croissant, Salad, PawPrint, FlaskRound, Building2, Martini, Flower2, Baby, PartyPopper, NotebookPen, Bone, School, Trophy, HandCoins,     } from 'lucide-react';
+import { Pill, Beef, Drumstick, ShoppingBasket, Store, Croissant, Salad, PawPrint, FlaskRound, Building2, Martini, Flower2, PartyPopper, NotebookPen, Bone, School, Trophy, HandCoins,     } from 'lucide-react';
 import { categories } from '../data/mockData';
 
 interface CategoryGridProps {
@@ -20,7 +20,6 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({ onCategorySelect }) => {
     Building2,
     Martini,
     Flower2,
-    Baby,
     PartyPopper,
     NotebookPen,
     Bone,
