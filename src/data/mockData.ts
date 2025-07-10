@@ -222,7 +222,7 @@ export const businesses: Business[] = [
   mapEmbedUrl: 'https://www.google.com/maps/embed?...'
 },
 {
-    id: '8',
+    id: '9',
     name: 'Distribuidora Sur',
     category: 'distribuidoras',
     description: 'Distribuidora mayorista de golosinas, artículos de almacén y productos de limpieza. Atención personalizada, variedad y los mejores precios para tu negocio.',
