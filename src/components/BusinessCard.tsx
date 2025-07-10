@@ -46,7 +46,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
           </h3>
           {category && (
             <span className={`text-sm font-medium ${category.color}`}>
-              {category.icon}
+              {category.name}
             </span>
           )}
         </div>
