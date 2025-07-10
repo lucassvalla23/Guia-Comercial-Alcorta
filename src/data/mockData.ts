@@ -228,9 +228,9 @@ export const businesses: Business[] = [
     description: 'Distribuidora mayorista de golosinas, artículos de almacén y productos de limpieza. Atención personalizada, variedad y los mejores precios para tu negocio.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752189085/banner_distrisuira_alta_calidad_kpvv2x.jpg',
     address: 'Saenz Peña 330',
-    phone: '+54 11 6789-0123',
-    whatsapp: '+5493465658349',
-    email: 'distrisur@gmail.com',
+    phone: '+5493465658349',
+    whatsapp: '+54 9 346565-8349',
+    email: 'distrisuralcorta@gmail.com',
     website: 'https://distribuidorasur.netlify.app/',
     hours: {
       monday: '16:00 - 23:00',
