@@ -26,7 +26,7 @@ export const businesses: Business[] = [
   {
     id: '1',
     name: 'Farmacia Capella',
-    category: 'salud',
+    category: 'farmacias',
     description: 'Farmacia con amplia variedad de medicamentos y productos de cuidado personal.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1751744786/farmacia_capella_ojebng.jpg',
     address: 'Bv. 25 De Mayo 567',
@@ -54,7 +54,7 @@ export const businesses: Business[] = [
   {
     id: '2',
     name: 'Farmacia Nardoni',
-    category: 'salud',
+    category: 'farmacias',
     description: 'Farmacia con servicio de delivery y asesoramiento farmacéutico profesional.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1751746698/farmacia_nardoni_sczuvq.jpg',
     address: 'Av. San Martín 456',
@@ -81,7 +81,7 @@ export const businesses: Business[] = [
   {
     id: '3',
     name: 'Carnicería El Dragón',
-    category: 'carnicería',
+    category: 'carnicerías',
     description: 'Carnicería premium con cortes especiales y productos de primera calidad.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1751746860/carniceria_el_drag%C3%B3n_fs9gcu.jpg',
     address: 'Calle Industria 789',
@@ -104,7 +104,7 @@ export const businesses: Business[] = [
   {
     id: '4',
     name: 'Carnicería Juana',
-    category: 'carnicería',
+    category: 'carnicerías',
     description: 'Carnicería tradicional con los mejores cortes y atención personalizada.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1751746925/carnicer%C3%ADa_juana_bowjen.jpg',
     address: 'Plaza Central 101',
@@ -128,7 +128,7 @@ export const businesses: Business[] = [
   {
     id: '5',
     name: 'Pollería Balcarce',
-    category: 'carnicería',
+    category: 'pollerías',
     description: 'Especialistas en pollos y aves de la mejor calidad, asados al estilo tradicional.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1751747094/polleria_balcarce_nxn4gs.jpg',
     address: 'Calle Educación 246',
@@ -152,7 +152,7 @@ export const businesses: Business[] = [
   {
     id: '6',
     name: 'La Frutería',
-    category: 'verdulería',
+    category: 'verdulerías',
     description: 'Frutas y verduras frescas de estación, directamente del productor al consumidor.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1751747191/la_fruteria_evxvw4.jpg',
     address: 'Av. Entretenimiento 135',
@@ -176,7 +176,7 @@ export const businesses: Business[] = [
   {
     id: '7',
     name: 'Pollería San Blas',
-    category: 'carnicería',
+    category: 'pollerías',
     description: 'Especialistas en pollos y aves de la mejor calidad, asados al estilo tradicional.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1751747269/poller%C3%ADa_san_blas_lvu9al.jpg',
     address: 'Av. Entretenimiento 135',
