@@ -84,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({
   </div>
   <div className="hidden sm:block">
     <h1 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-secondary-500 bg-clip-text text-transparent">
-      Directorio Local
+      Fuía Comercial Alcorta
     </h1>
     <p className="text-xs text-gray-500 -mt-1">Tu pueblo conectado</p>
   </div>
