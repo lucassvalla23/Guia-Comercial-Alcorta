@@ -79,31 +79,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Categorías populares */}
-        <div className="mt-8 pt-8 border-t border-gray-800">
-          <h4 className="text-lg font-semibold mb-4">Categorías Populares</h4>
-          <div className="flex flex-wrap gap-2">
-            {[
-              'Gastronomía',
-              'Tiendas',
-              'Servicios',
-              'Salud',
-              'Educación',
-              'Entretenimiento',
-              'Belleza',
-              'Deportes'
-            ].map((category) => (
-              <span
-                key={category}
-                className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm hover:bg-primary-600 hover:text-white transition-all duration-200 cursor-pointer transform hover:scale-105"
-              >
-                {category}
-              </span>
-            ))}
-          </div>
-        </div>
-
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
