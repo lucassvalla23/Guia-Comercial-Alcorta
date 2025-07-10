@@ -105,7 +105,7 @@ function App() {
                 <span className="block bg-gradient-to-r from-accent-300 to-accent-400 bg-clip-text text-transparent">
                   Comercios, Servicios Y Profesionales De Nuestra Localidad
                 </span>
-                <span className="block text-4xl md:text-5xl">de Tu Pueblo</span>
+                <span className="block text-4xl md:text-5xl"></span>
               </h1>
               
               <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
