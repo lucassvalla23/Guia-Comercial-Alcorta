@@ -215,7 +215,7 @@ const Header: React.FC<HeaderProps> = ({
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-white/20 py-4">
+          <div className="md:hidden border-t border-white/20 py-4 relative z-40">
             <div className="space-y-2">
               <button
                 onClick={handleHomeClick}

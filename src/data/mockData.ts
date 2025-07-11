@@ -20,6 +20,7 @@ export const categories: Category[] = [
   { id: 'clubes', name: 'Clubes', icon: 'Trophy', color: 'text-lime-500' },
   { id: 'emprendimientos', name: 'Emprendimientos', icon: 'HandCoins', color: 'text-violet-500' },
   { id: 'pañaleras', name: 'Pañaleras', icon: 'Baby', color: 'text-violet-500' },
+  { id: 'peluquerías', name: 'Peluquerías', icon: 'Scissors', color: 'text-violet-500' },
 ];
 
 export const businesses: Business[] = [
