@@ -71,7 +71,9 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
           <div className="flex items-center text-gray-500 text-sm">
             <Clock className="w-4 h-4 mr-2 flex-shrink-0" />
             <span>
-              {business.hours.monday ? 'Lun-Vie ' + business.hours.monday : 'Horarios variables'}
+              {business.hours.monday.morning !== 'Cerrado' 
+                ? `Lun-Vie ${business.hours.monday.morning} / ${business.hours.monday.afternoon}` 
+                : 'Cerrado'}
             </span>
           </div>
         </div>

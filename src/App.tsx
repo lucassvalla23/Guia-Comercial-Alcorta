@@ -6,9 +6,10 @@ import BusinessModal from './components/BusinessModal';
 import MapView from './components/MapView';
 import CategoryGrid from './components/CategoryGrid';
 import Footer from './components/Footer';
-import { Star, MapPin, Heart, ShoppingBag, Coffee, Utensils } from 'lucide-react';
+import { Star, MapPin, ShoppingBag } from 'lucide-react';
 import { Business } from './types';
 import { businesses as initialBusinesses, categories } from './data/mockData';
+import { bannerImages } from './data/bannerImages';
 
 function App() {
   const [businesses] = useState<Business[]>(initialBusinesses);
@@ -88,99 +89,104 @@ function App() {
       />
       
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Nuevo Hero Section mejorado */}
-        <div className="relative mb-12 rounded-3xl overflow-hidden shadow-2xl bg-[#01764c]">
-          {/* Patrón de fondo abstracto */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-[#c42b2a] rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#019b6d] rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-          </div>
-          
-          {/* Contenido */}
-          <div className="relative z-10 text-center py-16 px-8">
-            {/* Iconos decorativos flotantes */}
-            <div className="absolute top-8 left-8 animate-float">
-              <ShoppingBag className="w-12 h-12 text-white/20" />
-            </div>
-            <div className="absolute bottom-8 right-8 animate-float-delay">
-              <Coffee className="w-12 h-12 text-white/20" />
-            </div>
-            <div className="absolute top-1/4 right-1/4 animate-float-delay-2">
-              <Utensils className="w-10 h-10 text-white/20" />
-            </div>
-            <div className="absolute bottom-1/3 left-1/3 animate-float-delay-3">
-              <Heart className="w-8 h-8 text-white/20" />
-            </div>
-            
-            {/* Contenido principal */}
-            <div className="max-w-4xl mx-auto relative z-20">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 shadow-lg mx-auto">
-                <MapPin className="w-10 h-10 text-white" />
-              </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                <span className="block mb-4">Bienvenidos a</span>
-                <span className="block text-5xl md:text-6xl lg:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-[#c42b2a]/80">
-                  Guía Comercial Alcorta
-                </span>
-              </h1>
-              
-              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
-                Descubre los mejores comercios, servicios y profesionales de nuestra localidad. 
-                <span className="block mt-2 font-medium text-white">¡Apoya lo local y fortalece nuestra comunidad!</span>
-              </p>
-              
-              {/* Stats */}
-              <div className="flex flex-wrap justify-center gap-8 mb-8">
-                <div className="text-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                  <div className="text-3xl font-bold text-white mb-1">{businesses.length}+</div>
-                  <div className="text-white/80 text-sm">Negocios</div>
-                </div>
-                <div className="text-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                  <div className="text-3xl font-bold text-white mb-1">{categories.length}</div>
-                  <div className="text-white/80 text-sm">Categorías</div>
-                </div>
-                <div className="text-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                  <div className="text-3xl font-bold text-white mb-1">{featuredBusinesses.length}</div>
-                  <div className="text-white/80 text-sm">Destacados</div>
-                </div>
-              </div>
-              
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
-                  onClick={() => {
-                    setActiveView('home');
-                    clearFilters();
-                    scrollToBusinesses();
-                  }}
-                  className="px-8 py-4 bg-white text-[#01764c] font-semibold rounded-xl hover:bg-gray-50 hover:text-[#016043] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2"
-                >
-                  <ShoppingBag className="w-5 h-5" />
-                  Explorar Negocios
-                </button>
-                <button 
-                  onClick={() => setActiveView('map')}
-                  className="px-8 py-4 bg-[#c42b2a] text-white font-semibold rounded-xl border-2 border-[#c42b2a] hover:bg-[#a82424] hover:border-[#a82424] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2"
-                >
-                  <MapPin className="w-5 h-5" />
-                  Ver en Mapa
-                </button>
-              </div>
+        {/* Nuevo Banner Moderno */}
+        <div className="relative mb-12 overflow-hidden">
+          {/* Fondo con gradiente y patrón geométrico */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#01764c] to-[#00a372]">
+            <div className="absolute inset-0 opacity-10">
+              {/* Patrón de formas geométricas */}
+              <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1IiBvcGFjaXR5PSIwLjEiLz4KPC9zdmc+')]"></div>
             </div>
           </div>
-          
-          {/* Onda decorativa inferior */}
-          <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-16">
-              <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="white"></path>
-              <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="white"></path>
-              <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="white"></path>
-            </svg>
+
+          {/* Contenido del banner */}
+          <div className="relative z-10 py-16 px-8 max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+              {/* Texto principal */}
+              <div className="lg:w-1/2 space-y-6 text-center lg:text-left">
+                <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-4">
+                  👋 Bienvenidos a
+                </div>
+                
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                  <span className="block mb-2">Guía Comercial</span>
+                  <span className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-[#c4fcef]">
+                    Alcorta
+                  </span>
+                </h1>
+                
+                <p className="text-xl text-white/90 max-w-2xl">
+                  Tu directorio local de comercios y servicios. Encuentra lo mejor de nuestra comunidad.
+                </p>
+                
+                {/* Botones */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button 
+                    onClick={() => {
+                      setActiveView('home');
+                      clearFilters();
+                      scrollToBusinesses();
+                    }}
+                    className="px-6 py-3 bg-white text-[#01764c] font-semibold rounded-lg hover:bg-gray-50 transition-all duration-200 shadow-lg flex items-center justify-center gap-2"
+                  >
+                    <ShoppingBag className="w-5 h-5" />
+                    Explorar Negocios
+                  </button>
+                  <button 
+                    onClick={() => setActiveView('map')}
+                    className="px-6 py-3 bg-transparent text-white font-semibold rounded-lg border-2 border-white hover:bg-white/10 transition-all duration-200 shadow-lg flex items-center justify-center gap-2"
+                  >
+                    <MapPin className="w-5 h-5" />
+                    Ver en Mapa
+                  </button>
+                </div>
+              </div>
+
+              {/* Cuadrícula de imágenes del banner */}
+              <div className="lg:w-1/2 relative">
+                <div className="grid grid-cols-3 gap-2 rounded-xl overflow-hidden shadow-lg">
+                  {bannerImages.map((img) => (
+                    <div 
+                      key={img.id}
+                      className="aspect-square overflow-hidden hover:scale-105 transition-transform duration-300"
+                    >
+                      <img
+                        src={img.image}
+                        alt={img.alt}
+                        className="w-full h-full object-cover hover:brightness-110 transition-all"
+                      />
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Elementos decorativos */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#c42b2a]/80 rounded-full mix-blend-multiply filter blur-xl z-[-1]"></div>
+                <div className="absolute -top-4 -left-4 w-20 h-20 bg-[#00c9a7]/70 rounded-full mix-blend-multiply filter blur-xl z-[-1]"></div>
+              </div>
+            </div>
+
+            {/* Indicadores flotantes */}
+            <div className="mt-12 flex flex-wrap justify-center gap-6">
+              <div className="flex items-center gap-2 text-white/90">
+                <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                <span>{businesses.length}+ Negocios</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/90">
+                <div className="w-3 h-3 bg-white rounded-full animate-pulse" style={{animationDelay: '0.3s'}}></div>
+                <span>{categories.length} Categorías</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/90">
+                <div className="w-3 h-3 bg-white rounded-full animate-pulse" style={{animationDelay: '0.6s'}}></div>
+                <span>Actualizado diariamente</span>
+              </div>
+            </div>
           </div>
+
+          {/* Transición inferior moderna */}
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent"></div>
         </div>
 
-        {/* Resto del código permanece igual */}
+        {/* Resto del contenido */}
         <div className="mb-8 bg-white/80 backdrop-blur-sm rounded-xl p-1 shadow-sm border border-[#01764c]/30">
           <SearchBar
             searchTerm={searchTerm}
@@ -242,19 +248,29 @@ function App() {
         )}
 
         {featuredBusinesses.length > 0 && !selectedCategory && !searchTerm && (
-          <div className="mb-12 bg-gradient-to-br from-[#01764c]/10 to-[#019b6d]/10 rounded-2xl p-8 shadow-sm border border-[#01764c]/30">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-[#01764c] to-[#019b6d] bg-clip-text text-transparent mb-6 flex items-center">
-              <Star className="w-6 h-6 mr-3 text-[#01764c]" />
-              Negocios Destacados
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-              {featuredBusinesses.map((business) => (
-                <BusinessCard
-                  key={business.id}
-                  business={business}
-                  onViewDetails={setSelectedBusiness}
-                />
-              ))}
+          <div className="mb-12">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-[#01764c]/20">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex items-center">
+                  <span className="bg-gradient-to-r from-[#01764c] to-[#019b6d] bg-clip-text text-transparent">
+                    <Star className="inline-block w-6 h-6 mr-3 -mt-1 text-[#01764c]" />
+                    Negocios Destacados
+                  </span>
+                </h2>
+                <span className="text-sm bg-[#01764c]/10 text-[#01764c] px-3 py-1 rounded-full">
+                  {featuredBusinesses.length} destacados
+                </span>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {featuredBusinesses.map((business) => (
+                  <BusinessCard
+                    key={business.id}
+                    business={business}
+                    onViewDetails={setSelectedBusiness}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         )}
@@ -275,14 +291,28 @@ function App() {
           </div>
           
           {filteredBusinesses.length === 0 ? (
-            <div className="text-center py-12 bg-gradient-to-br from-[#01764c]/10 to-[#019b6d]/10 rounded-xl">
-              <p className="text-[#01764c] text-lg">No se encontraron negocios con los filtros seleccionados</p>
-              <button
-                onClick={clearFilters}
-                className="mt-4 text-[#01764c] hover:text-[#016043] underline"
-              >
-                Limpiar filtros
-              </button>
+            <div className="text-center py-16 bg-white/90 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-200">
+              <div className="max-w-md mx-auto">
+                <svg 
+                  className="w-16 h-16 mx-auto text-[#01764c]/50 mb-4" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 className="text-xl font-medium text-gray-800 mb-2">No se encontraron resultados</h3>
+                <p className="text-gray-600 mb-6">Prueba ajustando tus filtros de búsqueda</p>
+                <button
+                  onClick={clearFilters}
+                  className="px-6 py-2 bg-[#01764c] text-white rounded-lg hover:bg-[#016043] transition-colors duration-200 inline-flex items-center"
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Limpiar todos los filtros
+                </button>
+              </div>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

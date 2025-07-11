@@ -1,3 +1,8 @@
+export interface Hours {
+  morning: string;
+  afternoon: string;
+}
+
 export interface Business {
   id: string;
   name: string;
@@ -15,13 +20,14 @@ export interface Business {
     twitter?: string;
   };
   hours: {
-    monday?: string;
-    tuesday?: string;
-    wednesday?: string;
-    thursday?: string;
-    friday?: string;
-    saturday?: string;
-    sunday?: string;
+    [key: string]: Hours; // Firma de índice
+    monday: Hours;
+    tuesday: Hours;
+    wednesday: Hours;
+    thursday: Hours;
+    friday: Hours;
+    saturday: Hours;
+    sunday: Hours;
   };
   isOpen: boolean;
   coordinates: {
@@ -29,7 +35,7 @@ export interface Business {
     lng: number;
   };
   featured?: boolean;
-  mapEmbedUrl?: string; // <-- Añade esta nueva propiedad opcional
+  mapEmbedUrl?: string;
 }
 
 export interface Category {

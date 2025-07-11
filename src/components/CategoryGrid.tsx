@@ -3,7 +3,7 @@ import {
   Pill, Beef, Drumstick, ShoppingBasket, Store, Croissant, 
   Salad, PawPrint, FlaskRound, Building2, Martini, 
   Flower, PartyPopper, NotebookPen, Bone, School, 
-  Trophy, HandCoins, Baby, 
+  Trophy, HandCoins, Baby, Scissors,
 } from 'lucide-react';
 import { categories } from '../data/mockData';
 
@@ -32,6 +32,7 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({ onCategorySelect }) => {
     Trophy,
     HandCoins,
     Baby,
+    Scissors,
   };
 
   return (
