@@ -129,27 +129,29 @@ const Header: React.FC<HeaderProps> = ({
                     <div className="grid grid-cols-2 gap-2">
                       {categories.map((category) => {
                         const iconMap: { [key: string]: React.ComponentType<any> } = {
-                          Pill,
-                          Beef,
-                          Drumstick,
-                          ShoppingBasket,
-                          Store,
-                          Croissant,
-                          Salad,
-                          PawPrint,
-                          FlaskRound,
-                          Building2,
-                          Martini,
-                          Flower,
-                          PartyPopper,
-                          NotebookPen,
-                          Bone,
-                          School,
-                          Trophy,
-                          HandCoins,
-                          Baby,
-                        };
-                        const IconComponent = iconMap[category.icon];
+  Pill,
+  Beef,
+  Drumstick,
+  ShoppingBasket,
+  Store,
+  Croissant,
+  Salad,
+  PawPrint,
+  FlaskRound,
+  Building2,
+  Martini,
+  Flower,
+  PartyPopper,
+  NotebookPen,
+  Bone,
+  School,
+  Trophy,
+  HandCoins,
+  Baby,
+};
+
+const IconComponent = iconMap[category.icon];
+
                         
                         return (
                           <button
@@ -246,18 +248,47 @@ const Header: React.FC<HeaderProps> = ({
                       <h4 className="text-white font-medium text-sm">Categorías</h4>
                     </div>
                     <div className="p-3 space-y-1">
-                      {categories.map((category) => (
-                        <button
-                          key={category.id}
-                          onClick={() => handleCategorySelect(category.id)}
-                          className="w-full flex items-center px-3 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-[#c42b2a]/5 hover:to-[#e74c3c]/5 hover:text-[#c42b2a] rounded-lg transition-all duration-200 group"
-                        >
-                          <div className={`w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center mr-3 group-hover:bg-gradient-to-br group-hover:from-[#c42b2a]/10 group-hover:to-[#e74c3c]/10 transition-all duration-200`}>
-                            <span className={`w-3 h-3 rounded-full ${category.color.replace('text-', 'bg-')} group-hover:scale-110 transition-transform duration-200`} />
-                          </div>
-                          <span className="font-medium">{category.name}</span>
-                        </button>
-                      ))}
+                      {categories.map((category) => {
+  const iconMap: { [key: string]: React.ComponentType<any> } = {
+    Pill,
+    Beef,
+    Drumstick,
+    ShoppingBasket,
+    Store,
+    Croissant,
+    Salad,
+    PawPrint,
+    FlaskRound,
+    Building2,
+    Martini,
+    Flower,
+    PartyPopper,
+    NotebookPen,
+    Bone,
+    School,
+    Trophy,
+    HandCoins,
+    Baby,
+  };
+
+  const IconComponent = iconMap[category.icon];
+
+  return (
+    <button
+      key={category.id}
+      onClick={() => handleCategorySelect(category.id)}
+      className="w-full flex items-center px-3 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-[#c42b2a]/5 hover:to-[#e74c3c]/5 hover:text-[#c42b2a] rounded-lg transition-all duration-200 group"
+    >
+      <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center mr-3 group-hover:bg-gradient-to-br group-hover:from-[#c42b2a]/10 group-hover:to-[#e74c3c]/10 transition-all duration-200">
+        {IconComponent && (
+          <IconComponent className={`w-4 h-4 ${category.color}`} />
+        )}
+      </div>
+      <span className="font-medium">{category.name}</span>
+    </button>
+  );
+})}
+
                     </div>
                     <div className="bg-gray-50 px-3 py-3 border-t border-gray-100 sticky bottom-0">
                       <button
