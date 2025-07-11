@@ -26,7 +26,7 @@ export const bannerImages = [
   },
   {
     id: 6,
-    image: '/img/banner/comercio6.jpg',
+    image: '/img/banner/profesionales.jpeg',
     alt: "Verdulería Frescamar"
   }
 ];
