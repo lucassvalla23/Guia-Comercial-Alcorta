@@ -78,7 +78,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
         
         <button
           onClick={() => onViewDetails(business)}
-          className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-3 rounded-xl font-medium hover:from-primary-600 hover:to-primary-700 transition-all duration-200 flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          className="w-full bg-[#00764c] text-white py-3 rounded-xl font-medium hover:bg-[#005c3a] transition-all duration-200 flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
         >
           <Eye className="w-4 h-4 mr-2" />
           Ver Detalles

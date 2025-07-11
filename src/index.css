@@ -29,3 +29,23 @@
   width: 100%;
   height: 100%;
 }
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delay {
+  animation: float 6s ease-in-out infinite 1s;
+}
+.animate-float-delay-2 {
+  animation: float 6s ease-in-out infinite 2s;
+}
+.animate-float-delay-3 {
+  animation: float 6s ease-in-out infinite 3s;
+}

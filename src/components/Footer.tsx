@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Heart, Mail, Phone } from 'lucide-react';
+import logo from '../assets/logo.png'; // Asegúrate de que la ruta sea correcta
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -8,11 +9,15 @@ const Footer: React.FC = () => {
     <footer className="bg-[#01764c] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
-          {/* Logo y descripción */}
+          {/* Logo y descripción - Actualizado para coincidir con el header */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg">
-                <MapPin className="w-6 h-6 text-[#01764c]" />
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg mr-3 overflow-hidden">
+                <img 
+                  src={logo} 
+                  alt="Logo Guía Comercial Alcorta" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="ml-3">
                 <h3 className="text-xl font-bold">Guía Comercial Alcorta</h3>
@@ -79,6 +84,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
+        
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/80 text-sm">
