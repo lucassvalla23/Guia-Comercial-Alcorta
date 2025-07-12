@@ -23,27 +23,29 @@ interface MapViewProps {
 }
 
 const MapView: React.FC<MapViewProps> = ({ businesses, onBackToHome, onBusinessSelect }) => {
-  // Coordenadas del centro de tu pueblo - REEMPLAZA CON LAS DE TU PUEBLO
   const townCenter: [number, number] = [-33.538978271800715, -61.123878894153336];
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b p-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center">
-            <button
-              onClick={onBackToHome}
-              className="flex items-center text-gray-600 hover:text-primary-600 transition-colors mr-4"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Volver al Inicio
-            </button>
+        <div className="max-w-7xl mx-auto space-y-2">
+          {/* Volver al Inicio */}
+          <button
+            onClick={onBackToHome}
+            className="flex items-center text-gray-600 hover:text-primary-600 transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Volver al Inicio
+          </button>
+
+          {/* Título y contador */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <h1 className="text-xl font-bold text-gray-900">Mapa de Negocios</h1>
+            <p className="text-sm text-gray-500 mt-1 sm:mt-0">
+              {businesses.length} negocios encontrados
+            </p>
           </div>
-          <p className="text-sm text-gray-500">
-            {businesses.length} negocios encontrados
-          </p>
         </div>
       </div>
 
@@ -51,7 +53,7 @@ const MapView: React.FC<MapViewProps> = ({ businesses, onBackToHome, onBusinessS
       <div className="max-w-7xl mx-auto p-4">
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Mapa - Columna principal */}
-          <div className="lg:col-span-2 h-96 relative z-0"> {/* z-0 para problemas de superposición */}
+          <div className="lg:col-span-2 h-96 relative z-0">
             <MapContainer
               center={townCenter}
               zoom={14}
