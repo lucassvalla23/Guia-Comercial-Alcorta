@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Clock, Phone, MapPin, Star, Eye } from 'lucide-react';
 import { Business } from '../types';
 import { categories } from '../data/mockData';
@@ -10,15 +10,35 @@ interface BusinessCardProps {
 
 const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) => {
   const category = categories.find(cat => cat.id === business.category);
-  
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isVertical, setIsVertical] = useState(false);
+
+  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.target as HTMLImageElement;
+    setImageLoaded(true);
+    // Determinar si la imagen es vertical (altura > ancho)
+    setIsVertical(img.naturalHeight > img.naturalWidth);
+  };
+
   return (
-    <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-sm border border-primary-100/50 hover:shadow-lg hover:border-primary-200 transition-all duration-200 hover:-translate-y-1">
-      <div className="relative">
-        <img
-          src={business.image}
-          alt={business.name}
-          className="w-full h-48 object-cover rounded-t-xl"
-        />
+    <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-sm border border-primary-100/50 hover:shadow-lg hover:border-primary-200 transition-all duration-200 hover:-translate-y-1 h-full flex flex-col">
+      <div className="relative flex-grow">
+        {/* Contenedor de imagen con relación de aspecto flexible */}
+        <div className={`w-full ${isVertical ? 'h-64' : 'h-48'} overflow-hidden rounded-t-xl`}>
+          {!imageLoaded && (
+            <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
+              <div className="text-gray-400">Cargando imagen...</div>
+            </div>
+          )}
+          <img
+            src={business.image}
+            alt={business.name}
+            className={`w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            onLoad={handleImageLoad}
+            loading="lazy"
+          />
+        </div>
+
         {business.featured && (
           <div className="absolute top-3 left-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg border-2 border-white">
             <Star className="w-3 h-3 inline mr-1 fill-current" />
@@ -39,7 +59,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
         </div>
       </div>
       
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-grow">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-lg font-semibold text-gray-900 line-clamp-1">
             {business.name}
@@ -51,7 +71,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
           )}
         </div>
         
-        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+        <p className="text-gray-600 text-sm mb-3 line-clamp-2 flex-grow">
           {business.description}
         </p>
         

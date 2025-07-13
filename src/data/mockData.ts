@@ -270,4 +270,27 @@ export const businesses: Business[] = [
     coordinates: { lat: -33.53879, lng: -61.11972 },
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.556926941476!2d-61.12228062430199!3d-33.53890360204766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7f10053cb179f%3A0x911b5a193c009819!2sDISTRIBUIDORA%20SUR%20ALCORTA!5e0!3m2!1ses!2sar!4v1752188704376!5m2!1ses!2sar'
   },
+  {
+    id: '11',
+    name: 'Despensa LyL',
+    category: 'kioskos',
+    description: 'Tienda de Utilidades donde podrás conseguir todo quello que te haga feliz en tu día a día.',
+    image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752441420/Brown_and_Beige_Illustrated_Coffee_Shop_Presentation_jmzjou.png',
+    address: 'Alberdi 591',
+    phone: '+5493465664215',
+    whatsapp: '+54 9 3465-66-4215',
+    email: 'camilavalla3@gmail.com',
+    hours: {
+      monday: { morning: '8:30 - 12:00', afternoon: 'Cerrado' },
+      tuesday: { morning: 'Cerrado', afternoon: '16:00 - 23:00' },
+      wednesday: { morning: 'Cerrado', afternoon: '16:00 - 23:00' },
+      thursday: { morning: 'Cerrado', afternoon: '16:00 - 23:00' },
+      friday: { morning: 'Cerrado', afternoon: '16:00 - 24:00' },
+      saturday: { morning: 'Cerrado', afternoon: '14:00 - 24:00' },
+      sunday: { morning: 'Cerrado', afternoon: '14:00 - 22:00' },
+    },
+    isOpen: true,
+    coordinates: { lat: -33.53879, lng: -61.11972 },
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.556926941476!2d-61.12228062430199!3d-33.53890360204766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7f10053cb179f%3A0x911b5a193c009819!2sDISTRIBUIDORA%20SUR%20ALCORTA!5e0!3m2!1ses!2sar!4v1752188704376!5m2!1ses!2sar'
+  },
 ];

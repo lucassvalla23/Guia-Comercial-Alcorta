@@ -1,5 +1,5 @@
 import { BusinessMap } from './BusinessMap';
-import React from 'react';
+import React, { useState } from 'react';
 import { X, MapPin, Phone, Clock, Globe, MessageCircle, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
 import { Business } from '../types';
 import { categories } from '../data/mockData';
@@ -12,7 +12,15 @@ interface BusinessModalProps {
 const BusinessModal: React.FC<BusinessModalProps> = ({ business, onClose }) => {
   if (!business) return null;
 
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isVertical, setIsVertical] = useState(false);
   const category = categories.find(cat => cat.id === business.category);
+
+  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.target as HTMLImageElement;
+    setImageLoaded(true);
+    setIsVertical(img.naturalHeight > img.naturalWidth);
+  };
 
   const handleWhatsAppClick = () => {
     if (business.whatsapp) {
@@ -78,11 +86,20 @@ const BusinessModal: React.FC<BusinessModalProps> = ({ business, onClose }) => {
 
         <div className="p-6">
           <div className="relative mb-6">
-            <img
-              src={business.image}
-              alt={business.name}
-              className="w-full h-64 object-cover rounded-lg"
-            />
+            <div className={`w-full ${isVertical ? 'h-96' : 'h-64'} flex items-center justify-center bg-gray-100 rounded-lg overflow-hidden`}>
+              {!imageLoaded && (
+                <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
+                  <div className="text-gray-400">Cargando imagen...</div>
+                </div>
+              )}
+              <img
+                src={business.image}
+                alt={business.name}
+                className={`${isVertical ? 'h-full w-auto' : 'w-full h-auto'} max-w-full max-h-full object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={handleImageLoad}
+                loading="lazy"
+              />
+            </div>
             <div className="absolute top-4 right-4 max-w-[calc(100%-2rem)]">
               <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
                 business.isOpen
