@@ -279,22 +279,22 @@ export const businesses: Business[] = [
     address: 'Alberdi 591',
     phone: '+54 9 3465-66-4215',
     whatsapp: '+54 9 3465-66-4215',
-    email: '',
+    email: 'luzmarifloriano@gmail.com',
     socialMedia: {
       facebook: 'https://www.facebook.com/share/1B5qcL54XV/',
       instagram: '',
     },
     hours: {
-      monday: { morning: '8:30 - 12:00', afternoon: 'Cerrado' },
-      tuesday: { morning: 'Cerrado', afternoon: '16:00 - 23:00' },
-      wednesday: { morning: 'Cerrado', afternoon: '16:00 - 23:00' },
+      monday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      tuesday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      wednesday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
       thursday: { morning: 'Cerrado', afternoon: '16:00 - 23:00' },
-      friday: { morning: 'Cerrado', afternoon: '16:00 - 24:00' },
-      saturday: { morning: 'Cerrado', afternoon: '14:00 - 24:00' },
-      sunday: { morning: 'Cerrado', afternoon: '14:00 - 22:00' },
+      friday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      saturday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      sunday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
     },
     isOpen: true,
-    coordinates: { lat: -33.53879, lng: -61.11972 },
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.556926941476!2d-61.12228062430199!3d-33.53890360204766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7f10053cb179f%3A0x911b5a193c009819!2sDISTRIBUIDORA%20SUR%20ALCORTA!5e0!3m2!1ses!2sar!4v1752188704376!5m2!1ses!2sar'
+    coordinates: { lat: -33.54855, lng: -61.12501 },
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.1799003786136!2d-61.1275935243016!3d-33.548701902550484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7f01a5a8710e1%3A0xef1a042cb299ae27!2sAlberdi%20591%2C%20S2117%20Alcorta%2C%20Santa%20Fe!5e0!3m2!1ses!2sar!4v1752450291855!5m2!1ses!2sar'
   },
 ];
