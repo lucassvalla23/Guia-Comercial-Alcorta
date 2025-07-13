@@ -277,9 +277,13 @@ export const businesses: Business[] = [
     description: 'Tienda de Utilidades donde podrás conseguir todo quello que te haga feliz en tu día a día.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752441420/Brown_and_Beige_Illustrated_Coffee_Shop_Presentation_jmzjou.png',
     address: 'Alberdi 591',
-    phone: '+5493465664215',
+    phone: '+54 9 3465-66-4215',
     whatsapp: '+54 9 3465-66-4215',
     email: 'camilavalla3@gmail.com',
+    socialMedia: {
+      facebook: 'https://www.facebook.com/share/1B5qcL54XV/',
+      instagram: 'https://instagram.com/farmacianardoni',
+    },
     hours: {
       monday: { morning: '8:30 - 12:00', afternoon: 'Cerrado' },
       tuesday: { morning: 'Cerrado', afternoon: '16:00 - 23:00' },
