@@ -296,4 +296,30 @@ export const businesses: Business[] = [
     coordinates: { lat: -33.54855, lng: -61.12501 },
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.1799003786136!2d-61.1275935243016!3d-33.548701902550484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7f01a5a8710e1%3A0xef1a042cb299ae27!2sAlberdi%20591%2C%20S2117%20Alcorta%2C%20Santa%20Fe!5e0!3m2!1ses!2sar!4v1752450291855!5m2!1ses!2sar'
   },
+  {
+    id: '12',
+    name: 'El Kiosko Meteorito',
+    category: 'kioskos',
+    description: 'El Meteorito es tu kiosco de confianza, ideal para sacarte un antojo al paso. Golosinas, snacks, bebidas frías y todo lo que necesitás para disfrutar en cualquier momento del día. ¡Pasá y sentí el impacto del buen sabor!.',
+    image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752450517/el_kioskjo_meteorito_nxuyom.jpg',
+    address: 'Belgrano 120',
+    phone: '+54 9 3465 66-2249',
+    whatsapp: '+54 9 3465 66-2249',
+    email: '',
+    socialMedia: {
+      instagram: 'https://www.instagram.com/kioscoelmeteorito?igsh=MXRtN3c3dmc0eGJrZA==',
+    },
+    hours: {
+      monday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      tuesday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      wednesday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      thursday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      friday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      saturday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+      sunday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
+    },
+    isOpen: true,
+    coordinates: { lat: -33.54126, lng: -61.12449 },
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.4590939019554!2d-61.12444618344397!3d-33.54144636473976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7f01d960d2b8d%3A0x4f69ae9f28d3bbe6!2sBelgrano%20120%2C%20S2117%20Alcorta%2C%20Santa%20Fe!5e0!3m2!1ses!2sar!4v1752450637158!5m2!1ses!2sar'
+  },
 ];
