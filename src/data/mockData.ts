@@ -274,7 +274,7 @@ export const businesses: Business[] = [
     id: '11',
     name: 'Despensa LyL',
     category: 'kioskos',
-    description: 'Tienda de Utilidades donde podrás conseguir todo quello que te haga feliz en tu día a día.',
+    description: 'Despensa LyL. Artículos de Almacén, Limpieza y Kiosko. Promociones todos los días en venta de Carne y Pollo.',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752441420/Brown_and_Beige_Illustrated_Coffee_Shop_Presentation_jmzjou.png',
     address: 'Alberdi 591',
     phone: '+54 9 3465-66-4215',
