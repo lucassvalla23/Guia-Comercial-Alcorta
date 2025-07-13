@@ -282,13 +282,12 @@ export const businesses: Business[] = [
     email: 'luzmarifloriano@gmail.com',
     socialMedia: {
       facebook: 'https://www.facebook.com/share/1B5qcL54XV/',
-      instagram: '',
     },
     hours: {
       monday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
       tuesday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
       wednesday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
-      thursday: { morning: 'Cerrado', afternoon: '16:00 - 23:00' },
+      thursday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
       friday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
       saturday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
       sunday: { morning: '7:00 - 12:00', afternoon: '12:00 - 00:00' },
