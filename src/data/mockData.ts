@@ -279,10 +279,10 @@ export const businesses: Business[] = [
     address: 'Alberdi 591',
     phone: '+54 9 3465-66-4215',
     whatsapp: '+54 9 3465-66-4215',
-    email: 'camilavalla3@gmail.com',
+    email: '',
     socialMedia: {
       facebook: 'https://www.facebook.com/share/1B5qcL54XV/',
-      instagram: 'https://instagram.com/farmacianardoni',
+      instagram: '',
     },
     hours: {
       monday: { morning: '8:30 - 12:00', afternoon: 'Cerrado' },
