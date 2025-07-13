@@ -16,15 +16,14 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
   const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.target as HTMLImageElement;
     setImageLoaded(true);
-    // Determinar si la imagen es vertical (altura > ancho)
     setIsVertical(img.naturalHeight > img.naturalWidth);
   };
 
   return (
     <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-sm border border-primary-100/50 hover:shadow-lg hover:border-primary-200 transition-all duration-200 hover:-translate-y-1 h-full flex flex-col">
       <div className="relative flex-grow">
-        {/* Contenedor de imagen con relación de aspecto flexible */}
-        <div className={`w-full ${isVertical ? 'h-64' : 'h-48'} overflow-hidden rounded-t-xl`}>
+        {/* Contenedor de imagen rediseñado */}
+        <div className={`w-full ${isVertical ? 'h-72' : 'h-56'} flex items-center justify-center bg-gray-100 overflow-hidden rounded-t-xl`}>
           {!imageLoaded && (
             <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
               <div className="text-gray-400">Cargando imagen...</div>
@@ -33,9 +32,13 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
           <img
             src={business.image}
             alt={business.name}
-            className={`w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`${isVertical ? 'h-full w-auto' : 'w-full h-auto'} max-w-full max-h-full object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
             onLoad={handleImageLoad}
             loading="lazy"
+            style={{
+              maxWidth: 'calc(100% - 20px)',
+              maxHeight: 'calc(100% - 20px)'
+            }}
           />
         </div>
 
