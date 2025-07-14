@@ -327,7 +327,7 @@ export const businesses: Business[] = [
     id: '13',
     name: 'Valla Gas',
     category: 'gasistas',
-    description: 'Valla Gas es una empresa familiar especializada en instalaciones, reparaciones y mantenimiento de sistemas de gas domiciliarios y comerciales. Con profesionalismo, responsabilidad y años de experiencia, brindamos soluciones seguras y eficientes adaptadas a cada necesidad. ¡Tu tranquilidad y la seguridad de tu hogar o negocio, es nuestra prioridad!.',
+    description: 'Servicio profesional de instalación y mantenimiento de gas. Seguro, rápido y confiable..',
     image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752535565/WhatsApp_Image_2025-07-14_at_18.33.29_mfm7em.jpg',
     address: 'Simón de Iriondo 277',
     phone: '+54 9 3465 65-2602',
