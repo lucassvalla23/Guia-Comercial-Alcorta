@@ -346,7 +346,7 @@ export const businesses: Business[] = [
       saturday: { morning: '8:00 - 12:00', afternoon: '15:00 - 20:00' },
       sunday: { morning: '8:00 - 12:00', afternoon: '15:00 - 20:00' },
     },
-    isOpen: true,
+    isOpen: flase,
     coordinates: { lat: -33.53644, lng: -61.11643 },
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.64895724493!2d-61.11897642430216!3d-33.53651150192476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7efdfdda9d1a3%3A0x74bc2f837190ea03!2sSim%C3%B3n%20de%20Iriondo%20277%2C%20S2117%20Alcorta%2C%20Santa%20Fe!5e0!3m2!1ses!2sar!4v1752535699596!5m2!1ses!2sa'
   },
