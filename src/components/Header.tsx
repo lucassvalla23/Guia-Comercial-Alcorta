@@ -26,6 +26,7 @@ import {
   HandCoins,
   Baby,
   Scissors,
+  Fuel,
 } from 'lucide-react';
 import { categories } from '../data/mockData';
 
@@ -150,6 +151,7 @@ const Header: React.FC<HeaderProps> = ({
   HandCoins,
   Baby,
   Scissors,
+  Fuel,
 };
 
 const IconComponent = iconMap[category.icon];

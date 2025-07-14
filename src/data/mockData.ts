@@ -21,6 +21,7 @@ export const categories: Category[] = [
   { id: 'emprendimientos', name: 'Emprendimientos', icon: 'HandCoins', color: 'text-violet-500' },
   { id: 'pañaleras', name: 'Pañaleras', icon: 'Baby', color: 'text-violet-500' },
   { id: 'peluquerías', name: 'Peluquerías', icon: 'Scissors', color: 'text-violet-500' },
+  { id: 'gasistas', name: 'Gasistas', icon: 'Fuel', color: 'text-orange-500' },
 ];
 
 export const businesses: Business[] = [
@@ -321,5 +322,32 @@ export const businesses: Business[] = [
     isOpen: true,
     coordinates: { lat: -33.54126, lng: -61.12449 },
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.4590939019554!2d-61.12444618344397!3d-33.54144636473976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7f01d960d2b8d%3A0x4f69ae9f28d3bbe6!2sBelgrano%20120%2C%20S2117%20Alcorta%2C%20Santa%20Fe!5e0!3m2!1ses!2sar!4v1752450637158!5m2!1ses!2sar'
+  },
+   {
+    id: '13',
+    name: 'Valla Gas',
+    category: 'gasistas',
+    description: 'Valla Gas es una empresa familiar especializada en instalaciones, reparaciones y mantenimiento de sistemas de gas domiciliarios y comerciales. Con profesionalismo, responsabilidad y años de experiencia, brindamos soluciones seguras y eficientes adaptadas a cada necesidad. ¡Tu tranquilidad y la seguridad de tu hogar o negocio, es nuestra prioridad!.',
+    image: 'https://res.cloudinary.com/ds6ziojhc/image/upload/v1752535565/WhatsApp_Image_2025-07-14_at_18.33.29_mfm7em.jpg',
+    address: 'Simón de Iriondo 277',
+    phone: '+54 9 3465 65-2602',
+    whatsapp: '+54 9 3465 65-2602',
+    email: 'marcelovalla10@gmail.com',
+    socialMedia: {
+      facebook: 'https://www.facebook.com/share/1Ck5jVMoZr',
+      instagram: 'https://www.instagram.com/marcelo.valla?igsh=MWFrNGhmdHAwOWV6aw==',
+    },
+    hours: {
+      monday: { morning: '8:00 - 12:00', afternoon: '15:00 - 20:00' },
+      tuesday: { morning: '8:00 - 12:00', afternoon: '15:00 - 20:00' },
+      wednesday: { morning: '8:00 - 12:00', afternoon: '15:00 - 20:00' },
+      thursday: { morning: '8:00 - 12:00', afternoon: '15:00 - 20:00' },
+      friday: { morning: '8:00 - 12:00', afternoon: '15:00 - 20:00' },
+      saturday: { morning: '8:00 - 12:00', afternoon: '15:00 - 20:00' },
+      sunday: { morning: '8:00 - 12:00', afternoon: '15:00 - 20:00' },
+    },
+    isOpen: true,
+    coordinates: { lat: -33.53644, lng: -61.11643 },
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.64895724493!2d-61.11897642430216!3d-33.53651150192476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7efdfdda9d1a3%3A0x74bc2f837190ea03!2sSim%C3%B3n%20de%20Iriondo%20277%2C%20S2117%20Alcorta%2C%20Santa%20Fe!5e0!3m2!1ses!2sar!4v1752535699596!5m2!1ses!2sa'
   },
 ];
