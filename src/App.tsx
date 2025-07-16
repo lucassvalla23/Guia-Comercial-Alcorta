@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import BusinessCard from './components/BusinessCard';
@@ -10,14 +10,37 @@ import { Star, MapPin, ShoppingBag } from 'lucide-react';
 import { Business } from './types';
 import { businesses as initialBusinesses, categories } from './data/mockData';
 import { bannerImages } from './data/bannerImages';
+import { checkBusinessHours } from './utils/hoursHelper';
 
 function App() {
-  const [businesses] = useState<Business[]>(initialBusinesses);
+  const [businesses, setBusinesses] = useState<Business[]>(() => {
+    // Actualizar el estado isOpen para cada negocio al cargar
+    return initialBusinesses.map(business => ({
+      ...business,
+      isOpen: checkBusinessHours(business.hours)
+    }));
+  });
   const [selectedBusiness, setSelectedBusiness] = useState<Business | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [showOpenOnly, setShowOpenOnly] = useState(false);
   const [activeView, setActiveView] = useState<'home' | 'map'>('home');
+  const [updateTime, setUpdateTime] = useState(Date.now());
+
+  // Actualizar el estado de apertura cada minuto
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBusinesses(prevBusinesses => 
+        prevBusinesses.map(business => ({
+          ...business,
+          isOpen: checkBusinessHours(business.hours)
+        }))
+      );
+      setUpdateTime(Date.now());
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const filteredBusinesses = useMemo(() => {
     return businesses.filter(business => {
@@ -30,7 +53,7 @@ function App() {
       
       return matchesSearch && matchesCategory && matchesOpenStatus;
     });
-  }, [businesses, searchTerm, selectedCategory, showOpenOnly]);
+  }, [businesses, searchTerm, selectedCategory, showOpenOnly, updateTime]);
 
   const featuredBusinesses = useMemo(() => {
     return filteredBusinesses.filter(business => business.featured);
@@ -89,20 +112,16 @@ function App() {
       />
       
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Nuevo Banner Moderno */}
+        {/* Banner */}
         <div className="relative mb-12 overflow-hidden">
-          {/* Fondo con gradiente y patrón geométrico */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#01764c] to-[#00a372]">
             <div className="absolute inset-0 opacity-10">
-              {/* Patrón de formas geométricas */}
               <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1IiBvcGFjaXR5PSIwLjEiLz4KPC9zdmc+')]"></div>
             </div>
           </div>
 
-          {/* Contenido del banner */}
           <div className="relative z-10 py-16 px-8 max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-              {/* Texto principal */}
               <div className="lg:w-1/2 space-y-6 text-center lg:text-left">
                 <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-4">
                   👋 Bienvenidos a
@@ -119,7 +138,6 @@ function App() {
                   Tu directorio local de comercios y servicios. Encuentra lo mejor de nuestra comunidad.
                 </p>
                 
-                {/* Botones */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <button 
                     onClick={() => {
@@ -142,7 +160,6 @@ function App() {
                 </div>
               </div>
 
-              {/* Cuadrícula de imágenes del banner */}
               <div className="lg:w-1/2 relative">
                 <div className="grid grid-cols-3 gap-2 rounded-xl overflow-hidden shadow-lg">
                   {bannerImages.map((img) => (
@@ -159,13 +176,11 @@ function App() {
                   ))}
                 </div>
                 
-                {/* Elementos decorativos */}
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#c42b2a]/80 rounded-full mix-blend-multiply filter blur-xl z-[-1]"></div>
                 <div className="absolute -top-4 -left-4 w-20 h-20 bg-[#00c9a7]/70 rounded-full mix-blend-multiply filter blur-xl z-[-1]"></div>
               </div>
             </div>
 
-            {/* Indicadores flotantes */}
             <div className="mt-12 flex flex-wrap justify-center gap-6">
               <div className="flex items-center gap-2 text-white/90">
                 <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
@@ -182,11 +197,9 @@ function App() {
             </div>
           </div>
 
-          {/* Transición inferior moderna */}
           <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent"></div>
         </div>
 
-        {/* Resto del contenido */}
         <div className="mb-8 bg-white/80 backdrop-blur-sm rounded-xl p-1 shadow-sm border border-[#01764c]/30">
           <SearchBar
             searchTerm={searchTerm}

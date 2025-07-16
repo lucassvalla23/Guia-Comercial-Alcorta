@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Clock, Phone, MapPin, Star, Eye } from 'lucide-react';
 import { Business } from '../types';
 import { categories } from '../data/mockData';
+import { checkBusinessHours } from '../utils/hoursHelper';
 
 interface BusinessCardProps {
   business: Business;
@@ -12,6 +13,15 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
   const category = categories.find(cat => cat.id === business.category);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVertical, setIsVertical] = useState(false);
+  const [isOpen, setIsOpen] = useState(checkBusinessHours(business.hours));
+
+  // Actualizar el estado cada minuto
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsOpen(checkBusinessHours(business.hours));
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [business.hours]);
 
   const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.target as HTMLImageElement;
@@ -50,14 +60,12 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
         )}
         <div className="absolute top-3 right-3 max-w-[calc(100%-6rem)]">
           <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-            business.isOpen 
+            isOpen 
               ? 'bg-green-500/90 text-white backdrop-blur-sm' 
               : 'bg-red-500/90 text-white backdrop-blur-sm'
           }`}>
-            <div className={`w-2 h-2 rounded-full mr-1 ${
-              business.isOpen ? 'bg-white' : 'bg-white'
-            }`} />
-            {business.isOpen ? 'Abierto' : 'Cerrado'}
+            <div className="w-2 h-2 rounded-full mr-1 bg-white" />
+            {isOpen ? 'Abierto' : 'Cerrado'}
           </span>
         </div>
       </div>
@@ -92,13 +100,14 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ business, onViewDetails }) 
           )}
           
           <div className="flex items-center text-gray-500 text-sm">
-            <Clock className="w-4 h-4 mr-2 flex-shrink-0" />
-            <span>
-              {business.hours.monday.morning !== 'Cerrado' 
-                ? `Lun-Vie ${business.hours.monday.morning} / ${business.hours.monday.afternoon}` 
-                : 'Cerrado'}
-            </span>
-          </div>
+  <Clock className="w-4 h-4 mr-2 flex-shrink-0" />
+  <span>
+    {business.hours.monday.afternoon === '-' || business.hours.monday.morning.includes('00:00 AM')
+      ? `Abierto ${business.hours.monday.morning.replace(' - 00:00 AM', ' - 24:00')}`
+      : `Lun-Vie ${business.hours.monday.morning} / ${business.hours.monday.afternoon}`
+    }
+  </span>
+</div>
         </div>
         
         <button

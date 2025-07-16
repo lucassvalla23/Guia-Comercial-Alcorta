@@ -1,8 +1,9 @@
 import { BusinessMap } from './BusinessMap';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, MapPin, Phone, Clock, Globe, MessageCircle, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
 import { Business } from '../types';
 import { categories } from '../data/mockData';
+import { checkBusinessHours } from '../utils/hoursHelper';
 
 interface BusinessModalProps {
   business: Business | null;
@@ -14,7 +15,15 @@ const BusinessModal: React.FC<BusinessModalProps> = ({ business, onClose }) => {
 
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVertical, setIsVertical] = useState(false);
+  const [isOpen, setIsOpen] = useState(checkBusinessHours(business.hours));
   const category = categories.find(cat => cat.id === business.category);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsOpen(checkBusinessHours(business.hours));
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [business.hours]);
 
   const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.target as HTMLImageElement;
@@ -47,28 +56,56 @@ const BusinessModal: React.FC<BusinessModalProps> = ({ business, onClose }) => {
   ];
 
   const renderHoursTable = () => (
-    <table className="w-full text-sm text-gray-700">
-      <thead>
-        <tr className="text-gray-500 border-b">
-          <th className="text-left py-2 px-2">Día</th>
-          <th className="py-2 px-2 text-center">Mañana</th>
-          <th className="py-2 px-2 text-center">Tarde</th>
-        </tr>
-      </thead>
-      <tbody>
-        {daysOfWeek.map((day) => (
-          <tr key={day.key} className="border-b">
-            <td className="py-2 px-2 font-medium">{day.name}</td>
-            <td className="py-2 px-2 text-center font-mono text-gray-600">
-              {business.hours[day.key].morning}
-            </td>
-            <td className="py-2 px-2 text-center font-mono text-gray-600">
-              {business.hours[day.key].afternoon}
-            </td>
+    <div className="overflow-hidden border border-gray-200 rounded-lg">
+      <table className="min-w-full divide-y divide-gray-200">
+        <thead className="bg-gray-50">
+          <tr>
+            <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Día
+            </th>
+            <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Horario
+            </th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody className="bg-white divide-y divide-gray-200">
+          {daysOfWeek.map((day) => {
+            const dayHours = business.hours[day.key];
+            const isContinuous = dayHours.afternoon === '-' || dayHours.afternoon === 'Cerrado';
+            
+            return (
+              <tr key={day.key} className="hover:bg-gray-50 transition-colors">
+                <td className="px-4 py-3 whitespace-nowrap">
+                  <div className="text-sm font-medium text-gray-900">{day.name}</div>
+                </td>
+                <td className="px-4 py-3">
+                  {isContinuous ? (
+                    <div className="text-sm text-gray-600">
+                      <span className="inline-block bg-blue-50 text-blue-800 px-2.5 py-1 rounded-full text-xs font-medium">
+                        {dayHours.morning.replace(' - ', ' a ').replace('AM', 'am').replace('PM', 'pm')}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="space-y-1">
+                      <div className="text-sm text-gray-600">
+                        <span className="inline-block bg-blue-50 text-blue-800 px-2.5 py-1 rounded-full text-xs font-medium">
+                          {dayHours.morning.replace(' - ', ' a ').replace('AM', 'am').replace('PM', 'pm')}
+                        </span>
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        <span className="inline-block bg-green-50 text-green-800 px-2.5 py-1 rounded-full text-xs font-medium">
+                          {dayHours.afternoon.replace(' - ', ' a ').replace('AM', 'am').replace('PM', 'pm')}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 
   return (
@@ -102,18 +139,17 @@ const BusinessModal: React.FC<BusinessModalProps> = ({ business, onClose }) => {
             </div>
             <div className="absolute top-4 right-4 max-w-[calc(100%-2rem)]">
               <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                business.isOpen
+                isOpen
                   ? 'bg-green-500/90 text-white backdrop-blur-sm'
                   : 'bg-red-500/90 text-white backdrop-blur-sm'
               }`}>
                 <div className="w-2 h-2 rounded-full mr-2 bg-white" />
-                {business.isOpen ? 'Abierto Ahora' : 'Cerrado'}
+                {isOpen ? 'Abierto Ahora' : 'Cerrado'}
               </span>
             </div>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Información principal */}
             <div className="lg:col-span-2">
               <div className="mb-6">
                 <div className="flex items-center mb-3">
@@ -168,7 +204,6 @@ const BusinessModal: React.FC<BusinessModalProps> = ({ business, onClose }) => {
                 )}
               </div>
 
-              {/* Botones de contacto y redes sociales */}
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900">Contacto y Redes Sociales</h3>
                 <div className="flex flex-wrap gap-3">
@@ -221,20 +256,15 @@ const BusinessModal: React.FC<BusinessModalProps> = ({ business, onClose }) => {
               </div>
             </div>
 
-            {/* Sidebar con horarios y mapa */}
             <div className="space-y-6">
-              {/* Horarios */}
               <div>
                 <h3 className="text-lg font-semibold mb-4 flex items-center">
                   <Clock className="w-5 h-5 mr-2" />
                   Horarios de Atención
                 </h3>
-                <div className="bg-gray-50 rounded-lg p-4 overflow-x-auto">
-                  {renderHoursTable()}
-                </div>
+                {renderHoursTable()}
               </div>
 
-              {/* Ubicación */}
               <div>
                 <h3 className="text-lg font-semibold mb-4 flex items-center">
                   <MapPin className="w-5 h-5 mr-2" />
