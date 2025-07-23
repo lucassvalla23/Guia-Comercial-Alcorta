@@ -19,8 +19,7 @@ export interface Business {
     instagram?: string;
     twitter?: string;
   };
-  hours: {
-    [key: string]: Hours; // Firma de índice
+  hours: Record<string, Hours> & {
     monday: Hours;
     tuesday: Hours;
     wednesday: Hours;
@@ -36,6 +35,9 @@ export interface Business {
   };
   featured?: boolean;
   mapEmbedUrl?: string;
+  isPharmacy?: boolean;          // Nuevo campo para identificar farmacias
+  pharmacyTurns?: string[];      // Nuevo campo para días de turno
+  emergencyPhone?: string;       // Nuevo campo para teléfono de emergencia
 }
 
 export interface Category {

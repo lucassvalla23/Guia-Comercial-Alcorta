@@ -52,6 +52,9 @@ export const businesses: Business[] = [
     isOpen: true,
     coordinates: { lat: -34.6037, lng: -58.3816 },
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.4455448630692!2d-61.12773992430191!3d-33.54179850219622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7f1cfff83cbf3%3A0x92be44846a8b9c2f!2sFarmacia%20Capella!5e0!3m2!1ses!2sar!4v1752157111262!5m2!1ses!2sar",
+    isPharmacy: true,
+    pharmacyTurns: ['Lunes', 'Jueves', 'Domingo'],
+    emergencyPhone: '2345-678901'
   },
   {
     id: '2',
@@ -78,7 +81,10 @@ export const businesses: Business[] = [
     },
     isOpen: true,
     coordinates: { lat: -34.6047, lng: -58.3826 },
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.90123456789!2d-58.3847!3d-34.6047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzE2LjkiUyA1OMKwMjInNTMuNiJX!5e0!3m2!1sen!2sar!4v1620000000000!5m2!1sen!2sar'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.90123456789!2d-58.3847!3d-34.6047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzE2LjkiUyA1OMKwMjInNTMuNiJX!5e0!3m2!1sen!2sar!4v1620000000000!5m2!1sen!2sar',
+    isPharmacy: true,
+    pharmacyTurns: ['Martes', 'Viernes', 'Sábado'],
+    emergencyPhone: '2345-678902',
   },
   {
     id: '3',

@@ -11,10 +11,11 @@ import { Business } from './types';
 import { businesses as initialBusinesses, categories } from './data/mockData';
 import { bannerImages } from './data/bannerImages';
 import { checkBusinessHours } from './utils/hoursHelper';
+import { getCurrentPharmacy, getPharmacySchedule } from './utils/pharmacyHelper';
+import { PharmacySchedule } from './components/PharmacySchedule';
 
 function App() {
   const [businesses, setBusinesses] = useState<Business[]>(() => {
-    // Actualizar el estado isOpen para cada negocio al cargar
     return initialBusinesses.map(business => ({
       ...business,
       isOpen: checkBusinessHours(business.hours)
@@ -27,7 +28,6 @@ function App() {
   const [activeView, setActiveView] = useState<'home' | 'map'>('home');
   const [updateTime, setUpdateTime] = useState(Date.now());
 
-  // Actualizar el estado de apertura cada minuto
   useEffect(() => {
     const interval = setInterval(() => {
       setBusinesses(prevBusinesses => 
@@ -58,6 +58,12 @@ function App() {
   const featuredBusinesses = useMemo(() => {
     return filteredBusinesses.filter(business => business.featured);
   }, [filteredBusinesses]);
+
+  const currentPharmacy = useMemo(() => getCurrentPharmacy(businesses), [businesses, updateTime]);
+  const pharmacySchedule = useMemo(() => 
+    getPharmacySchedule(businesses.filter(b => b.isPharmacy)), 
+    [businesses]
+  );
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
@@ -180,6 +186,45 @@ function App() {
                 <div className="absolute -top-4 -left-4 w-20 h-20 bg-[#00c9a7]/70 rounded-full mix-blend-multiply filter blur-xl z-[-1]"></div>
               </div>
             </div>
+
+            {/* Sección de Farmacia de Turno */}
+            {currentPharmacy && (
+              <div className="mt-8 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-[#c42b2a]/30">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                  <div>
+  <h3 className="text-lg font-bold text-[#c42b2a] flex items-center">
+    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+    </svg>
+    Farmacia de turno hoy
+  </h3>
+  <p className="text-gray-800">
+    {currentPharmacy.name} - {currentPharmacy.address}
+  </p>
+  <p className="text-sm text-gray-600 mt-1">
+    Horario: {currentPharmacy.hours.monday.morning} a {currentPharmacy.hours.monday.afternoon} {/* Ejemplo para lunes */}
+  </p>
+  {currentPharmacy.emergencyPhone && (
+    <p className="text-sm text-[#c42b2a] mt-1">
+      <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
+      Urgencias: {currentPharmacy.emergencyPhone}
+    </p>
+  )}
+</div>
+<button
+  onClick={() => setSelectedBusiness(currentPharmacy)}
+  className="px-4 py-2 bg-[#c42b2a] text-white rounded-lg hover:bg-[#a82424] transition-colors duration-200 flex items-center"
+>
+  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  Ver detalles
+</button>
+                </div>
+              </div>
+            )}
 
             <div className="mt-12 flex flex-wrap justify-center gap-6">
               <div className="flex items-center gap-2 text-white/90">
@@ -339,6 +384,9 @@ function App() {
             </div>
           )}
         </div>
+
+        {/* Sección de Horario de Farmacias */}
+        <PharmacySchedule schedule={pharmacySchedule} />
       </main>
 
       <Footer />
